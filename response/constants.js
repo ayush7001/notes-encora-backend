@@ -22,6 +22,10 @@ const ERR_CODES = {
     106: {
         status: 400,
         message: "There is no such record"
+    },
+    107: {
+        status: 400,
+        message: "Please enter password"
     }
 }
 

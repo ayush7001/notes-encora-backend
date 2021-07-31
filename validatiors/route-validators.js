@@ -5,6 +5,12 @@ const constants = require("../response/constants");
 
 class RoutesValidators {
 
+    /**
+     * verifyUser method is usd to verify user it checks token for the routes
+     * @param {*} req 
+     * @param {*} res 
+     * @param {*} next 
+     */
     async verifyUser(req, res, next) {
         try {
             const token = req.headers["x-access-token"];

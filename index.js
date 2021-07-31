@@ -34,4 +34,4 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, swaggerOp
 app.use("/", router);
 app.listen(process.env.PORT || 5000, () => {
     console.log("Server is listening on port 5000");
-})
+})  

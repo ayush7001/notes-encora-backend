@@ -4,6 +4,11 @@ const responseGenerator = require("../response/response");
 const constants = require("../response/constants");
 class UserController {
     
+    /**
+     * signUp method is used to register user 
+     * @param {*} req 
+     * @param {*} res 
+     */
     async signUp(req, res) {
         try {
             const checkUser = await userHelper.checkUserByEmail(req.body.email);
@@ -17,8 +22,20 @@ class UserController {
         }
     }
 
+    /**
+     * login method is used to login user 
+     * @param {*} req it contains email and password
+     * @param {*} res 
+     */
     async login(req, res) {
         try {
+
+            if(!req.body.email || req.body.email === "") {
+                throw new Error("103")
+            }
+            if(!req.body.password || req.body.password === "") {
+                throw new Error("107");
+            }
             const checkUser = await userHelper.checkUserByEmail(req.body.email);
             if (!checkUser) {
                 throw new Error('103');
@@ -37,6 +54,11 @@ class UserController {
         }
     }
 
+    /**
+     * addNote method is used to add notes in database with corresponding users
+     * @param {*} req 
+     * @param {*} res 
+     */
     async addNote (req, res) {
         try {
             const note = await userHelper.addNotes({title: req.body.title, body: req.body.body}, req.user.id);
@@ -46,6 +68,11 @@ class UserController {
         }
     }
 
+    /**
+     * updateNote api is used to update notes
+     * @param {*} req 
+     * @param {*} res 
+     */
     async updateNote (req, res) {
         try {
             const note = await userHelper.updateNote({title: req.body.title, body: req.body.body}, req.params.id);
@@ -59,6 +86,11 @@ class UserController {
     }
 
 
+    /**
+     * listNotes method is used to list notes for corresponding users
+     * @param {*} req 
+     * @param {*} res 
+     */
     async listNotes (req, res) {
         try {
             console.log(req.query.pageNumber, req.query.perPage)
@@ -68,7 +100,12 @@ class UserController {
             responseGenerator.sendError(res, error);
         }
     }
-    
+
+    /**
+     * deleteNote method is used to delete note
+     * @param {*} req 
+     * @param {*} res 
+     */
     async deleteNote (req, res) {
         try {
             const list = await userHelper.deleteNote(req.params.id);
