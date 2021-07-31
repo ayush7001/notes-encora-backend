@@ -4,6 +4,10 @@
 		"url": "http://localhost:5000",
 		"description": "",
 		"variables": {}
+	}, {
+		"url": "https://encora-backend.herokuapp.com/",
+		"description": "",
+		"variables": {}
 	}],
 	"info": {
 		"version": "90f16adc-f2cd-748f-7f3c-8dcd37003d27",
