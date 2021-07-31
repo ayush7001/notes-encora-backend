@@ -1,0 +1,293 @@
+{
+	"openapi": "3.0.0",
+	"servers": [{
+		"url": "http://localhost:5000",
+		"description": "",
+		"variables": {}
+	}],
+	"info": {
+		"version": "90f16adc-f2cd-748f-7f3c-8dcd37003d27",
+		"title": "encora-test-backend",
+		"description": "",
+		"termsOfService": "",
+		"contact": {},
+		"license": {
+			"name": ""
+		}
+	},
+	"paths": {
+		"/signup": {
+			"post": {
+				"summary": "http://localhost:5000/signup",
+				"description": "",
+				"operationId": "http://localhost:5000/signup",
+				"parameters": [{
+					"$ref": "#/components/parameters/Content-Type"
+				}],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"requestBody": {
+					"description": "",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "string",
+								"example": {
+									"firstName": "Ayush",
+									"lastName": "test",
+									"email": "ayush1-test@gmail.com",
+									"password": "test"
+								}
+							},
+							"example": {"firstName": "Ayush","lastName": "test","email": "ayush1-test@gmail.com","password": "test"}
+						}
+					}
+				}
+			}
+		},
+		"/login": {
+			"post": {
+				"summary": "http://localhost:5000/login",
+				"description": "",
+				"operationId": "http://localhost:5000/login",
+				"parameters": [{
+					"name": "Content-Type",
+					"in": "header",
+					"required": true,
+					"style": "simple",
+					"schema": {
+						"type": "string",
+						"example": "application/json"
+					},
+					"description": ""
+				}],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"requestBody": {
+					"description": "",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "string",
+								"example": {
+									"email": "ayush1-test@gmail.com",
+									"password": "test"
+								}
+							},
+							"example": {"email": "ayush1-test@gmail.com","password": "test"}
+						}
+					}
+				}
+			}
+		},
+		"/notes/add": {
+			"post": {
+				"summary": "http://localhost:5000/notes/add",
+				"description": "",
+				"operationId": "http://localhost:5000/notes/add",
+				"parameters": [{
+					"name": "Content-Type",
+					"in": "header",
+					"required": true,
+					"style": "simple",
+					"schema": {
+						"type": "string",
+						"example": "application/json"
+					},
+					"description": ""
+				}, {
+					"$ref": "#/components/parameters/x-access-token"
+				}],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"requestBody": {
+					"description": "",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "string",
+								"example": {
+									"title": "Note 3",
+									"body": "test in notes testaasasasa "
+								}
+							},
+							"example": {"title": "Note 3","body": "test in notes testaasasasa"}
+						}
+					}
+				}
+			}
+		},
+		"/notes": {
+			"get": {
+				"summary": "http://localhost:5000/notes?pageNumber=3&&perPage=10",
+				"description": "",
+				"operationId": "http://localhost:5000/notes?pageNumber=3&&perPage=10",
+				"parameters": [{
+					"$ref": "#/components/parameters/pageNumber"
+				}, {
+					"$ref": "#/components/parameters/perPage"
+				}, {
+					"$ref": "#/components/parameters/"
+				}, {
+					"name": "x-access-token",
+					"in": "header",
+					"required": true,
+					"style": "simple",
+					"schema": {
+						"type": "string",
+						"example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMDI5YWIxZGM5NzRlM2JhODZjNDgzZSIsImVtYWlsIjoiYXl1c2gxLXRlc3RAZ21haWwuY29tIiwiaWF0IjoxNjI3NTYyMjIzfQ.vKgJ6PEpGJVxUWwyHw5jduMeRDy6flHdVimfYA9G9n0"
+					},
+					"description": ""
+				}],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				}
+			}
+		},
+		"/notes/6102a29ca6afe62574f65ad4": {
+			"delete": {
+				"summary": "http://localhost:5000/notes/6102a29ca6afe62574f65ad4",
+				"description": "",
+				"operationId": "http://localhost:5000/notes/6102a29ca6afe62574f65ad4",
+				"parameters": [{
+					"name": "x-access-token",
+					"in": "header",
+					"required": true,
+					"style": "simple",
+					"schema": {
+						"type": "string",
+						"example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMDI5YWIxZGM5NzRlM2JhODZjNDgzZSIsImVtYWlsIjoiYXl1c2gxLXRlc3RAZ21haWwuY29tIiwiaWF0IjoxNjI3NTYyMjIzfQ.vKgJ6PEpGJVxUWwyHw5jduMeRDy6flHdVimfYA9G9n0"
+					},
+					"description": ""
+				}],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				}
+			}
+		},
+		"/notes/6102a2b39043ff3928a59df0": {
+			"put": {
+				"summary": "http://localhost:5000/notes/6102a2b39043ff3928a59df0",
+				"description": "",
+				"operationId": "http://localhost:5000/notes/6102a2b39043ff3928a59df0",
+				"parameters": [{
+					"name": "Content-Type",
+					"in": "header",
+					"required": true,
+					"style": "simple",
+					"schema": {
+						"type": "string",
+						"example": "application/json"
+					},
+					"description": ""
+				}, {
+					"name": "x-access-token",
+					"in": "header",
+					"required": true,
+					"style": "simple",
+					"schema": {
+						"type": "string",
+						"example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMDI5YWIxZGM5NzRlM2JhODZjNDgzZSIsImVtYWlsIjoiYXl1c2gxLXRlc3RAZ21haWwuY29tIiwiaWF0IjoxNjI3NTYyMjIzfQ.vKgJ6PEpGJVxUWwyHw5jduMeRDy6flHdVimfYA9G9n0"
+					},
+					"description": ""
+				}],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"requestBody": {
+					"description": "",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "string",
+								"example": {
+									"title": "Note 4",
+									"body": "test in notes "
+								}
+							},
+							"example": {"title": "Note 4","body": "test in notes"}
+						}
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"parameters": {
+			"Content-Type": {
+				"name": "Content-Type",
+				"in": "header",
+				"required": true,
+				"style": "simple",
+				"schema": {
+					"type": "string",
+					"example": "application/json"
+				},
+				"description": ""
+			},
+			"x-access-token": {
+				"name": "x-access-token",
+				"in": "header",
+				"required": true,
+				"style": "simple",
+				"schema": {
+					"type": "string",
+					"example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMDI5YWIxZGM5NzRlM2JhODZjNDgzZSIsImVtYWlsIjoiYXl1c2gxLXRlc3RAZ21haWwuY29tIiwiaWF0IjoxNjI3NTYyMjIzfQ.vKgJ6PEpGJVxUWwyHw5jduMeRDy6flHdVimfYA9G9n0"
+				},
+				"description": ""
+			},
+			"pageNumber": {
+				"name": "pageNumber",
+				"in": "query",
+				"required": true,
+				"style": "form",
+				"schema": {
+					"type": "number"
+				},
+				"description": ""
+			},
+			"perPage": {
+				"name": "perPage",
+				"in": "query",
+				"required": true,
+				"style": "form",
+				"schema": {
+					"type": "number"
+				},
+				"description": ""
+			}
+		}
+	},
+	"security": [],
+	"tags": [],
+	"externalDocs": {
+		"url": "",
+		"description": ""
+	},
+	"warnings": []
+}
